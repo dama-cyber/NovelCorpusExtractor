@@ -1,0 +1,83 @@
+# 救猫咪15节拍大纲模板
+
+structure_type: "救猫咪15节拍"
+description: "精确控制节奏的15个节拍结构"
+
+beats:
+  - beat: 1
+    name: "开场图片"
+    description: "视觉化开场，展现主题"
+    chapter_range: "1-2"
+  
+  - beat: 2
+    name: "主题陈述"
+    description: "暗示故事主题"
+    chapter_range: "3-5"
+  
+  - beat: 3
+    name: "铺垫"
+    description: "建立人物和世界"
+    chapter_range: "6-10"
+  
+  - beat: 4
+    name: "推动"
+    description: "引发故事的催化剂"
+    chapter_range: "11-12"
+  
+  - beat: 5
+    name: "争执"
+    description: "主角犹豫是否接受挑战"
+    chapter_range: "13-15"
+  
+  - beat: 6
+    name: "第二幕开始"
+    description: "主角进入新世界"
+    chapter_range: "16-20"
+  
+  - beat: 7
+    name: "B故事"
+    description: "副线剧情"
+    chapter_range: "21-30"
+  
+  - beat: 8
+    name: "游戏时间"
+    description: "主角适应新环境"
+    chapter_range: "31-50"
+  
+  - beat: 9
+    name: "中点"
+    description: "虚假胜利或失败"
+    chapter_range: "51-55"
+  
+  - beat: 10
+    name: "坏家伙逼近"
+    description: "压力增大"
+    chapter_range: "56-70"
+  
+  - beat: 11
+    name: "一无所有"
+    description: "最低点"
+    chapter_range: "71-75"
+  
+  - beat: 12
+    name: "灵魂黑夜"
+    description: "内心挣扎"
+    chapter_range: "76-80"
+  
+  - beat: 13
+    name: "第三幕开始"
+    description: "找到解决方案"
+    chapter_range: "81-85"
+  
+  - beat: 14
+    name: "大结局"
+    description: "最终对决"
+    chapter_range: "86-95"
+  
+  - beat: 15
+    name: "终场画面"
+    description: "呼应开场"
+    chapter_range: "96-100"
+
+total_chapters: 100
+

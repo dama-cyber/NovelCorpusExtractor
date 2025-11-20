@@ -1,0 +1,60 @@
+# 起承转合式大纲模板
+
+structure_type: "起承转合"
+description: "中国传统叙事结构，四段式布局"
+
+phases:
+  - phase: "起"
+    percentage: 25
+    description: "开端，引入人物和背景"
+    key_elements:
+      - "背景设定"
+      - "人物登场"
+      - "初始状态"
+      - "引子事件"
+      - "氛围营造"
+    chapter_range: "1-25"
+  
+  - phase: "承"
+    percentage: 35
+    description: "承接，情节发展和铺垫"
+    key_elements:
+      - "情节推进"
+      - "人物关系建立"
+      - "冲突初现"
+      - "伏笔埋设"
+      - "节奏铺垫"
+    chapter_range: "26-60"
+  
+  - phase: "转"
+    percentage: 25
+    description: "转折，冲突激化和高潮"
+    key_elements:
+      - "重大转折"
+      - "冲突升级"
+      - "危机爆发"
+      - "高潮来临"
+      - "关键抉择"
+    chapter_range: "61-85"
+  
+  - phase: "合"
+    percentage: 15
+    description: "收束，解决冲突和结局"
+    key_elements:
+      - "冲突解决"
+      - "伏笔回收"
+      - "人物归宿"
+      - "主题升华"
+      - "圆满收尾"
+    chapter_range: "86-100"
+
+chapter_distribution:
+  total_chapters: 100
+  phase1_chapters: 25
+  phase2_chapters: 35
+  phase3_chapters: 25
+  phase4_chapters: 15
+
+narrative_flow:
+  - "起：平静开端 → 承：逐步发展 → 转：激烈转折 → 合：圆满收束"
+

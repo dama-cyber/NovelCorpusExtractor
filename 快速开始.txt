@@ -1,0 +1,77 @@
+========================================
+小说语料提取系统 - 快速开始
+========================================
+
+【三步快速开始】
+
+1. 安装依赖
+   pip install -r requirements.txt
+
+2. 配置API密钥（二选一）
+   
+   方式A: 编辑config.yaml文件
+   - 打开config.yaml
+   - 设置api_key: "your-api-key-here"
+   
+   方式B: 设置环境变量
+   Windows: set OPENAI_API_KEY=your-api-key-here
+   Linux/Mac: export OPENAI_API_KEY="your-api-key-here"
+
+3. 运行提取
+   python main.py --input 你的小说.txt --type 玄幻
+
+========================================
+【常用命令】
+
+基本使用:
+  python main.py --input novel.txt --type 玄幻
+
+自定义输出:
+  python main.py --input novel.txt --type 玄幻 --output my_output
+
+查看帮助:
+  python main.py --help
+
+========================================
+【输出文件】
+
+处理完成后，查看以下目录:
+
+output/                    # 记忆体文件（YAML格式）
+  ├── 02_世界观记忆体.yaml
+  ├── 03_人物记忆体.yaml
+  ├── 04_剧情规划大纲.yaml
+  └── 05_伏笔追踪表.yaml
+
+corpus_samples/            # 语料库文件（文本格式）
+  ├── 06_玄幻预料库.txt
+  ├── 07_都市预料库.txt
+  └── ...
+
+========================================
+【常见问题】
+
+Q: 如何获取API密钥？
+A: OpenAI: https://platform.openai.com/api-keys
+   Gemini: https://makersuite.google.com/app/apikey
+   DeepSeek: https://platform.deepseek.com/
+
+Q: 处理速度慢？
+A: 1. 使用更快的模型（gpt-3.5-turbo）
+   2. 增加chunk_size参数
+   3. 使用多个API启用并行模式
+
+Q: Token消耗大？
+A: 1. 使用更便宜的模型
+   2. 增加chunk_size减少调用次数
+   3. 只处理关键章节
+
+========================================
+【更多帮助】
+
+详细文档: USAGE_GUIDE.md
+项目说明: README.md
+快速指南: QUICKSTART.md
+
+========================================
+

@@ -1,0 +1,48 @@
+structure_type: "宫斗/宅斗"
+description: "宫斗/宅斗类型小说大纲模板"
+base_structure: "草蛇灰线"
+special_elements:
+  - "权力斗争"
+  - "地位争夺"
+  - "人际关系"
+  - "算计"
+key_plot_points:
+  - "进入"
+  - "斗争"
+  - "算计"
+  - "胜利"
+  - "地位"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "权力斗争"
+      - "地位争夺"
+    plot_points:
+      - "进入"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "地位争夺"
+      - "人际关系"
+    plot_points:
+      - "斗争"
+      - "算计"
+      - "胜利"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "人际关系"
+      - "算计"
+    plot_points:
+      - "地位"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+
+

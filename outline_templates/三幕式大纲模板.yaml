@@ -1,0 +1,42 @@
+# 三幕式大纲模板
+
+structure_type: "三幕式"
+description: "经典的三幕式叙事结构"
+
+acts:
+  - act: "第一幕：设定"
+    percentage: 25
+    description: "建立情境，介绍人物和世界观"
+    key_elements:
+      - "开场钩子"
+      - "人物介绍"
+      - "世界观建立"
+      - "核心冲突引入"
+      - "激励事件"
+    
+  - act: "第二幕：冲突"
+    percentage: 50
+    description: "发展情节，推进冲突"
+    key_elements:
+      - "障碍和挑战"
+      - "角色成长"
+      - "冲突升级"
+      - "中点转折"
+      - "危机加深"
+    
+  - act: "第三幕：解决"
+    percentage: 25
+    description: "高潮和结局"
+    key_elements:
+      - "最终对决"
+      - "高潮爆发"
+      - "冲突解决"
+      - "角色弧线完成"
+      - "结局收束"
+
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

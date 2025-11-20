@@ -1,0 +1,74 @@
+# 弗莱塔格金字塔模板（五幕结构）
+
+structure_type: "弗莱塔格金字塔"
+description: "古斯塔夫·弗莱塔格的经典五幕戏剧结构"
+
+acts:
+  - act: "第一幕：开端"
+    percentage: 10
+    description: "介绍人物和背景"
+    key_elements:
+      - "人物介绍"
+      - "背景设定"
+      - "初始状态"
+      - "氛围建立"
+    chapter_range: "1-10"
+  
+  - act: "第二幕：上升行动"
+    percentage: 30
+    description: "冲突开始，情节上升"
+    key_elements:
+      - "冲突引入"
+      - "情节上升"
+      - "紧张加剧"
+      - "障碍出现"
+    chapter_range: "11-40"
+  
+  - act: "第三幕：高潮"
+    percentage: 20
+    description: "冲突达到顶点"
+    key_elements:
+      - "冲突顶点"
+      - "高潮爆发"
+      - "关键转折"
+      - "决定性时刻"
+    chapter_range: "41-60"
+  
+  - act: "第四幕：下降行动"
+    percentage: 30
+    description: "冲突解决，情节下降"
+    key_elements:
+      - "冲突解决"
+      - "情节下降"
+      - "紧张缓解"
+      - "后果显现"
+    chapter_range: "61-90"
+  
+  - act: "第五幕：结局"
+    percentage: 10
+    description: "故事收束"
+    key_elements:
+      - "最终收束"
+      - "人物归宿"
+      - "主题总结"
+      - "圆满结局"
+    chapter_range: "91-100"
+
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 10
+  act2_chapters: 30
+  act3_chapters: 20
+  act4_chapters: 30
+  act5_chapters: 10
+
+pyramid_structure:
+  base: "开端（10%）"
+  rising: "上升行动（30%）"
+  peak: "高潮（20%）"
+  falling: "下降行动（30%）"
+  resolution: "结局（10%）"
+
+narrative_flow:
+  - "开端 → 上升 → 高潮 → 下降 → 结局"
+

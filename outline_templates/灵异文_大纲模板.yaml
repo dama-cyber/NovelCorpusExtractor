@@ -1,0 +1,48 @@
+structure_type: "灵异文"
+description: "灵异文类型小说大纲模板"
+base_structure: "悬疑"
+special_elements:
+  - "鬼怪"
+  - "灵异事件"
+  - "超自然"
+  - "解谜"
+key_plot_points:
+  - "灵异事件"
+  - "调查"
+  - "真相"
+  - "解决"
+  - "结局"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "鬼怪"
+      - "灵异事件"
+    plot_points:
+      - "灵异事件"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "灵异事件"
+      - "超自然"
+    plot_points:
+      - "调查"
+      - "真相"
+      - "解决"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "超自然"
+      - "解谜"
+    plot_points:
+      - "结局"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+
+

@@ -1,0 +1,48 @@
+structure_type: "真假千金"
+description: "真假千金类型小说大纲模板"
+base_structure: "三幕式"
+special_elements:
+  - "身份互换"
+  - "身份揭露"
+  - "豪门恩怨"
+  - "真相"
+key_plot_points:
+  - "身份互换"
+  - "生活对比"
+  - "身份揭露"
+  - "真相"
+  - "结局"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "身份互换"
+      - "身份揭露"
+    plot_points:
+      - "身份互换"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "身份揭露"
+      - "豪门恩怨"
+    plot_points:
+      - "生活对比"
+      - "身份揭露"
+      - "真相"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "豪门恩怨"
+      - "真相"
+    plot_points:
+      - "结局"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+
+

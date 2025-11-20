@@ -1,0 +1,48 @@
+structure_type: "商战文"
+description: "商战文类型小说大纲模板"
+base_structure: "三幕式"
+special_elements:
+  - "商业竞争"
+  - "公司斗争"
+  - "商业策略"
+  - "成功"
+key_plot_points:
+  - "进入"
+  - "竞争"
+  - "策略"
+  - "胜利"
+  - "成功"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "商业竞争"
+      - "公司斗争"
+    plot_points:
+      - "进入"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "公司斗争"
+      - "商业策略"
+    plot_points:
+      - "竞争"
+      - "策略"
+      - "胜利"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "商业策略"
+      - "成功"
+    plot_points:
+      - "成功"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+
+

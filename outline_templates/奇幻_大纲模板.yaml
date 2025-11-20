@@ -1,0 +1,48 @@
+structure_type: "奇幻小说"
+description: "奇幻类型小说大纲模板"
+base_structure: "英雄之旅"
+special_elements:
+  - "魔法体系"
+  - "异世界"
+  - "神秘生物"
+  - "魔法战斗"
+key_plot_points:
+  - "进入异世界"
+  - "学习魔法"
+  - "冒险"
+  - "战斗"
+  - "拯救世界"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "魔法体系"
+      - "异世界"
+    plot_points:
+      - "进入异世界"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "异世界"
+      - "神秘生物"
+    plot_points:
+      - "学习魔法"
+      - "冒险"
+      - "战斗"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "神秘生物"
+      - "魔法战斗"
+    plot_points:
+      - "拯救世界"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+
+
