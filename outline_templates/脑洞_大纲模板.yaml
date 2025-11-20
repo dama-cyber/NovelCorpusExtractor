@@ -1,0 +1,47 @@
+structure_type: "脑洞小说"
+description: "脑洞类型小说大纲模板"
+base_structure: "碎片拼贴"
+special_elements:
+  - "新颖设定"
+  - "创意元素"
+  - "反套路"
+  - "出乎意料"
+key_plot_points:
+  - "设定引入"
+  - "创意展开"
+  - "反套路"
+  - "意外转折"
+  - "创意收束"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "新颖设定"
+      - "创意元素"
+    plot_points:
+      - "设定引入"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "创意元素"
+      - "反套路"
+    plot_points:
+      - "创意展开"
+      - "反套路"
+      - "意外转折"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "反套路"
+      - "出乎意料"
+    plot_points:
+      - "创意收束"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

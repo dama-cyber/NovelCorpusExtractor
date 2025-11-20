@@ -1,0 +1,47 @@
+structure_type: "马甲文"
+description: "马甲文类型小说大纲模板"
+base_structure: "草蛇灰线"
+special_elements:
+  - "多重身份"
+  - "身份揭露"
+  - "震惊"
+  - "反转"
+key_plot_points:
+  - "隐藏身份"
+  - "身份暗示"
+  - "身份揭露"
+  - "震惊"
+  - "反转"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "多重身份"
+      - "身份揭露"
+    plot_points:
+      - "隐藏身份"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "身份揭露"
+      - "震惊"
+    plot_points:
+      - "身份暗示"
+      - "身份揭露"
+      - "震惊"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "震惊"
+      - "反转"
+    plot_points:
+      - "反转"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

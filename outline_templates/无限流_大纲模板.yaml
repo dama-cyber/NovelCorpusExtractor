@@ -1,0 +1,47 @@
+structure_type: "无限流"
+description: "无限流类型小说大纲模板"
+base_structure: "碎片拼贴"
+special_elements:
+  - "副本世界"
+  - "任务系统"
+  - "生存挑战"
+  - "主神空间"
+key_plot_points:
+  - "进入副本"
+  - "任务挑战"
+  - "生存"
+  - "通关"
+  - "回归"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "副本世界"
+      - "任务系统"
+    plot_points:
+      - "进入副本"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "任务系统"
+      - "生存挑战"
+    plot_points:
+      - "任务挑战"
+      - "生存"
+      - "通关"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "生存挑战"
+      - "主神空间"
+    plot_points:
+      - "回归"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

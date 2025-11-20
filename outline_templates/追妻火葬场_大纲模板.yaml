@@ -1,0 +1,49 @@
+structure_type: "追妻火葬场"
+description: "追妻火葬场类型小说大纲模板"
+base_structure: "三幕式"
+special_elements:
+  - "伤害"
+  - "离开"
+  - "追回"
+  - "道歉"
+  - "和解"
+key_plot_points:
+  - "伤害"
+  - "离开"
+  - "醒悟"
+  - "追回"
+  - "和解"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "伤害"
+      - "离开"
+    plot_points:
+      - "伤害"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "离开"
+      - "追回"
+    plot_points:
+      - "离开"
+      - "醒悟"
+      - "追回"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "追回"
+      - "道歉"
+      - "和解"
+    plot_points:
+      - "和解"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

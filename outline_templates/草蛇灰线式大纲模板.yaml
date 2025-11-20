@@ -1,0 +1,72 @@
+# 草蛇灰线式大纲模板
+
+structure_type: "草蛇灰线"
+description: "伏笔布局，线索贯穿，前后呼应"
+
+structure:
+  foreshadowing_layers:
+    - "明线：主要情节"
+    - "暗线：伏笔线索"
+    - "隐线：深层主题"
+
+acts:
+  - act: "第一幕：埋线"
+    percentage: 30
+    description: "埋设伏笔，建立线索"
+    key_elements:
+      - "主要伏笔埋设"
+      - "线索初现"
+      - "暗示未来"
+      - "细节铺垫"
+    chapter_range: "1-30"
+    foreshadowing_count: "密集埋设"
+  
+  - act: "第二幕：发展"
+    percentage: 40
+    description: "线索发展，伏笔呼应"
+    key_elements:
+      - "线索推进"
+      - "部分伏笔回收"
+      - "新伏笔埋设"
+      - "线索交织"
+    chapter_range: "31-70"
+    foreshadowing_count: "持续布局"
+  
+  - act: "第三幕：收线"
+    percentage: 30
+    description: "伏笔回收，真相揭示"
+    key_elements:
+      - "伏笔集中回收"
+      - "线索汇聚"
+      - "真相揭示"
+      - "前后呼应"
+    chapter_range: "71-100"
+    foreshadowing_count: "全面回收"
+
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 30
+  act2_chapters: 40
+  act3_chapters: 30
+
+foreshadowing_strategy:
+  early_setup:
+    - "第1-10章：核心伏笔埋设"
+    - "第11-20章：次要伏笔埋设"
+    - "第21-30章：细节伏笔埋设"
+  
+  development:
+    - "第31-50章：部分伏笔回收"
+    - "第51-70章：新伏笔埋设"
+  
+  resolution:
+    - "第71-85章：主要伏笔回收"
+    - "第86-100章：所有伏笔收束"
+
+techniques:
+  - "细节暗示"
+  - "对话伏笔"
+  - "场景呼应"
+  - "人物行为暗示"
+  - "环境描写伏笔"
+

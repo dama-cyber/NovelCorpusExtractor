@@ -1,0 +1,51 @@
+structure_type: "玄幻小说"
+description: "玄幻类型小说大纲模板"
+base_structure: "升级流"
+special_elements:
+  - "修炼体系"
+  - "境界突破"
+  - "战斗场景"
+  - "宝物获得"
+key_plot_points:
+  - "觉醒"
+  - "入门"
+  - "突破"
+  - "战斗"
+  - "获得宝物"
+  - "实力提升"
+  - "最终对决"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "修炼体系"
+      - "境界突破"
+    plot_points:
+      - "觉醒"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "境界突破"
+      - "战斗场景"
+    plot_points:
+      - "入门"
+      - "突破"
+      - "战斗"
+      - "获得宝物"
+      - "实力提升"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "战斗场景"
+      - "宝物获得"
+    plot_points:
+      - "最终对决"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

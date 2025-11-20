@@ -1,0 +1,81 @@
+# 碎片拼贴式大纲模板
+
+structure_type: "碎片拼贴"
+description: "非线性叙事，多视角、多时间线拼贴"
+
+structure:
+  narrative_style: "非线性"
+  perspective: "多视角"
+  timeline: "多时间线"
+
+fragments:
+  - fragment_type: "时间碎片"
+    description: "不同时间点的片段"
+    distribution: "贯穿全文"
+  
+  - fragment_type: "视角碎片"
+    description: "不同角色的视角"
+    distribution: "交替呈现"
+  
+  - fragment_type: "场景碎片"
+    description: "不同场景的片段"
+    distribution: "跳跃切换"
+
+acts:
+  - act: "第一幕：碎片呈现"
+    percentage: 30
+    description: "呈现各种碎片，建立拼图"
+    key_elements:
+      - "多视角引入"
+      - "时间线跳跃"
+      - "碎片化叙事"
+      - "建立悬念"
+    chapter_range: "1-30"
+  
+  - act: "第二幕：碎片连接"
+    percentage: 40
+    description: "碎片开始连接，线索显现"
+    key_elements:
+      - "碎片关联"
+      - "线索浮现"
+      - "时间线交汇"
+      - "真相渐显"
+    chapter_range: "31-70"
+  
+  - act: "第三幕：完整拼图"
+    percentage: 30
+    description: "碎片拼合，完整图景呈现"
+    key_elements:
+      - "碎片拼合"
+      - "真相完整"
+      - "时间线统一"
+      - "主题明确"
+    chapter_range: "71-100"
+
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 30
+  act2_chapters: 40
+  act3_chapters: 30
+
+fragment_types:
+  - "时间碎片：过去/现在/未来"
+  - "视角碎片：主角/配角/反派"
+  - "场景碎片：不同地点"
+  - "情感碎片：不同情绪"
+  - "主题碎片：不同主题线"
+
+assembly_strategy:
+  - "第1-30章：碎片呈现，建立拼图"
+  - "第31-50章：碎片连接，线索显现"
+  - "第51-70章：碎片深化，真相渐显"
+  - "第71-85章：碎片拼合，图景完整"
+  - "第86-100章：完整呈现，主题升华"
+
+techniques:
+  - "时间跳跃"
+  - "视角切换"
+  - "场景转换"
+  - "线索交织"
+  - "悬念设置"
+

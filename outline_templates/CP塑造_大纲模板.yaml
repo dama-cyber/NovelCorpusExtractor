@@ -1,0 +1,47 @@
+structure_type: "CP塑造"
+description: "CP塑造类型小说大纲模板"
+base_structure: "三幕式"
+special_elements:
+  - "CP互动"
+  - "情感发展"
+  - "关系变化"
+  - "感情线"
+key_plot_points:
+  - "初遇"
+  - "互动"
+  - "发展"
+  - "考验"
+  - "圆满"
+acts:
+  - act: "第一幕：开端"
+    percentage: 25
+    description: "建立背景和人物"
+    key_elements:
+      - "CP互动"
+      - "情感发展"
+    plot_points:
+      - "初遇"
+  - act: "第二幕：发展"
+    percentage: 50
+    description: "推进情节和冲突"
+    key_elements:
+      - "情感发展"
+      - "关系变化"
+    plot_points:
+      - "互动"
+      - "发展"
+      - "考验"
+  - act: "第三幕：高潮与结局"
+    percentage: 25
+    description: "高潮和收束"
+    key_elements:
+      - "关系变化"
+      - "感情线"
+    plot_points:
+      - "圆满"
+chapter_distribution:
+  total_chapters: 100
+  act1_chapters: 25
+  act2_chapters: 50
+  act3_chapters: 25
+

@@ -1,0 +1,127 @@
+# 小说语料提取系统配置文件
+
+# 模型配置（单API模式）
+model:
+  model: "openai"  # openai / gemini / deepseek
+  model_name: "gpt-4"  # 具体模型名称
+  api_key: ""  # API密钥，也可通过环境变量设置
+  base_url: ""  # 可选，自定义API地址
+
+# 多API池配置（高级模式，启用后将使用多API负载均衡）
+api_pool:
+  enabled: false  # 是否启用API池模式
+  apis:
+    # OpenAI配置
+    - name: "openai_primary"
+      provider: "openai"
+      api_key: ""  # 或使用环境变量 OPENAI_API_KEY
+      model: "gpt-4"
+      priority: 1
+      rate_limit: 60
+      cost_per_1k_tokens: 0.03
+      enabled: true
+    
+    # Anthropic Claude配置
+    - name: "claude_primary"
+      provider: "anthropic"
+      api_key: ""  # 或使用环境变量 ANTHROPIC_API_KEY
+      model: "claude-3-5-sonnet-20241022"
+      priority: 2
+      rate_limit: 50
+      cost_per_1k_tokens: 0.015
+      enabled: false
+    
+    # Gemini配置
+    - name: "gemini_primary"
+      provider: "gemini"
+      api_key: ""  # 或使用环境变量 GEMINI_API_KEY
+      model: "gemini-pro"
+      priority: 3
+      rate_limit: 60
+      cost_per_1k_tokens: 0.0  # 免费
+      enabled: false
+    
+    # DeepSeek配置
+    - name: "deepseek_primary"
+      provider: "deepseek"
+      api_key: ""  # 或使用环境变量 DEEPSEEK_API_KEY
+      base_url: "https://api.deepseek.com"
+      model: "deepseek-chat"
+      priority: 4
+      rate_limit: 60
+      cost_per_1k_tokens: 0.0014
+      enabled: false
+    
+    # Moonshot配置
+    - name: "moonshot_primary"
+      provider: "moonshot"
+      api_key: ""  # 或使用环境变量 MOONSHOT_API_KEY
+      base_url: "https://api.moonshot.cn/v1"
+      model: "moonshot-v1-8k"
+      priority: 5
+      rate_limit: 60
+      cost_per_1k_tokens: 0.012
+      enabled: false
+    
+    # 零一万物配置
+    - name: "zeroone_primary"
+      provider: "zeroone"
+      api_key: ""  # 或使用环境变量 ZEROONE_API_KEY
+      base_url: "https://api.lingyiwanwu.com/v1"
+      model: "yi-34b-chat"
+      priority: 6
+      rate_limit: 60
+      cost_per_1k_tokens: 0.008
+      enabled: false
+    
+    # 通义千问配置
+    - name: "qwen_primary"
+      provider: "qwen"
+      api_key: ""  # 或使用环境变量 QWEN_API_KEY
+      base_url: "https://dashscope.aliyuncs.com/api/v1"
+      model: "qwen-turbo"
+      priority: 7
+      rate_limit: 60
+      cost_per_1k_tokens: 0.008
+      enabled: false
+    
+    # 文心一言配置
+    - name: "ernie_primary"
+      provider: "ernie"
+      api_key: ""  # 或使用环境变量 ERNIE_API_KEY
+      base_url: "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat"
+      model: "ernie-bot-turbo"
+      priority: 8
+      rate_limit: 60
+      cost_per_1k_tokens: 0.012
+      enabled: false
+    
+    # 智谱AI配置
+    - name: "glm_primary"
+      provider: "glm"
+      api_key: ""  # 或使用环境变量 GLM_API_KEY
+      base_url: "https://open.bigmodel.cn/api/paas/v4/chat/completions"
+      model: "glm-4"
+      priority: 9
+      rate_limit: 60
+      cost_per_1k_tokens: 0.1
+      enabled: false
+
+# 拓扑配置
+topology:
+  mode: "auto"  # linear / triangular / swarm / auto
+  # auto模式会根据可用API数量自动选择
+
+# 处理配置
+chunk_size: 1024  # 文本块大小（token数，约等于字符数/2）
+chunk_overlap: 100  # 块重叠字符数
+
+# 目录配置
+output_dir: "output"  # 输出目录
+corpus_dir: "corpus_samples"  # 语料库目录
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG / INFO / WARNING / ERROR
+  file: "novel_extractor.log"
+
