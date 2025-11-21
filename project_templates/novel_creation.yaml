@@ -1,0 +1,16 @@
+# 小说创作项目模板
+name: "小说创作项目"
+description: "用于小说创作的项目模板"
+config:
+  novel_type: "通用"
+  chunk_size: 1024
+  chunk_overlap: 100
+  topology_mode: "auto"
+  enable_workflow: true
+  workflow_type: "seven_step"
+metadata:
+  template_version: "1.0"
+  created_by: "system"
+  tags: ["创作", "小说"]
+
+

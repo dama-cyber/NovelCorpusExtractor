@@ -56,6 +56,7 @@ export interface CreativeOutputs {
 }
 
 export interface ProcessResponse {
+  workflowId?: string  // 工作流ID，用于查询进度
   chunkResults: ChunkResult[]
   workflowStages?: Record<string, WorkflowStageSnapshot>
   workflow?: WorkflowSummary
@@ -63,6 +64,7 @@ export interface ProcessResponse {
   memories?: MemoryBlock[]
   creative?: CreativeOutputs
   emittedAt?: string
+  outputDir?: string
 }
 
 export type WorkflowFlow = 'creation' | 'optimization' | 'detection'

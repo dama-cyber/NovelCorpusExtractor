@@ -113,3 +113,5 @@ if __name__ == "__main__":
     print(f"\n总共生成了 {generated}/{len(GENRE_TEMPLATES)} 个类型大纲模板！")
 
 
+
+

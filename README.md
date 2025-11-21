@@ -15,16 +15,27 @@
    - Planner: 剧情大纲生成
    - Stylist: 语言风格分析
 
-2. **三种拓扑处理模式**
+2. **多Agent协同机制** ⭐⭐
+   - 支持1-5个API的智能协同策略
+   - 自动根据API数量选择最优协同模式
+   - 8种Agent角色智能分配（Reader、Analyst、Extractor、Planner、Writer、Stylist、Critic、Archivist）
+   - 并行执行优化，最大化效率
+   - 详细使用指南请参考 [MULTI_AGENT_COORDINATION.md](./MULTI_AGENT_COORDINATION.md)
+
+3. **三种拓扑处理模式**
    - 线性串行模式：单API环境，顺序处理
    - 三角协同模式：3个API，生产者-消费者-监督者架构
    - 专家蜂群模式：5+ API，全功能并行处理
 
-3. **多模型后端适配**
+3. **多模型后端适配（仅 API 模式）**
+   - ⚠️ **重要**：本项目仅支持 API 模式，不支持本地模型
    - OpenAI GPT系列
    - Google Gemini
    - DeepSeek
+   - Anthropic Claude
+   - 支持多 API 池负载均衡
    - 支持自定义API接口
+   - 详细配置请参考 [API_ONLY_GUIDE.md](./API_ONLY_GUIDE.md)
 
 4. **Frankentexts语料库**
    - 高价值片段提取
@@ -37,6 +48,64 @@
    - 人物记忆体（MBTI性格、语言风格等）
    - 剧情规划大纲
    - 伏笔追踪表
+
+### 🆕 NovelForge 智能创作功能（规划中）
+
+> **注意**：以下功能正在规划中，详细方案请参考 [INTEGRATION_SUMMARY.md](./INTEGRATION_SUMMARY.md)
+
+6. **动态输出模型** ⭐
+   - 基于 Pydantic 的可视化 Schema 定义
+   - AI 输出自动校验，确保格式精确
+   - 支持自定义创作元素结构
+
+7. **自由上下文注入** ⭐
+   - 表达式语言驱动的上下文系统
+   - 支持复杂查询：`@current.character.enemies`、`@volume(1).scenes`
+   - 一行表达式实现复杂上下文检索
+
+8. **知识图谱驱动** ⭐
+   - Neo4j 集成的关系管理
+   - 自动提取人物关系和动态信息
+   - 动态注入到生成过程，减少 AI 幻觉
+
+9. **灵感助手** ⭐
+   - 对话式创作助手
+   - 支持跨项目引用
+   - 一键应用对话成果到卡片
+
+10. **灵感工作台** ⭐
+    - 独立头脑风暴空间
+    - 自由卡片系统
+    - 跨项目引用和创意整合
+
+11. **雪花式创作流程** ⭐
+    - 从一句话梗概到正文的完整流程
+    - 树形结构组织创作内容
+    - 支持多种创作流程（英雄之旅、三幕式等）
+
+12. **高度可配置系统** ⭐
+    - 深度自定义 AI 模型参数
+    - 可配置提示词模板
+    - 灵活的卡片类型和内容结构
+
+### 🆕 qcbigma 优秀特性
+
+> **注意**：以下功能基于 qcbigma 方法论的设计
+
+13. **七步方法论** ⭐
+    - 从创作原则到质量验证的完整流程
+    - 结构化创作引导
+    - 早期发现和解决歧义
+
+14. **Agent Skills 系统** ⭐
+    - 模块化 AI 知识系统
+    - 三层技能体系（扩展/项目/个人）
+    - 智能自动激活相关技能
+
+15. **斜杠命令系统** ⭐
+    - 快速访问常用功能
+    - 统一的命令接口
+    - 支持命令自动补全
 
 ## 技术栈
 
@@ -63,6 +132,8 @@ pip install -r requirements.txt
 
 ### 3. 配置
 
+⚠️ **重要提示**：本项目仅支持 API 模式，不支持本地模型。请确保配置了有效的 API 密钥。
+
 编辑 `config.yaml` 文件，设置：
 
 - 模型类型和API密钥
@@ -79,9 +150,46 @@ topology:
   mode: "auto"  # 自动检测可用API数量
 ```
 
+**验证配置**（可选但推荐）：
+
+```bash
+python validate_config.py
+```
+
+这将检查配置文件的完整性和有效性，并提示任何错误或警告。
+
 ## 使用方法
 
-### 基本用法
+### Web API 服务器（推荐用于前端集成）
+
+启动API服务器：
+
+**Windows:**
+```bash
+start_api.bat
+```
+
+**Linux/Mac:**
+```bash
+chmod +x start_api.sh
+./start_api.sh
+```
+
+**或直接使用Python:**
+```bash
+python api_server.py
+```
+
+服务器默认运行在 `http://localhost:8000`
+
+API接口：
+- `POST /api/process` - 处理小说文件或文本
+- `GET /api/health` - 健康检查
+- `GET /api/config` - 获取配置信息
+
+详细部署说明请参考 [DEPLOYMENT.md](DEPLOYMENT.md)
+
+### 命令行用法（基本用法）
 
 ```bash
 python main.py --input novel.txt --type 玄幻
@@ -181,6 +289,29 @@ NovelCorpusExtractor/
 4. **Frankentexts 复用**：支持模板化处理、高价值片段沉淀与检索
 5. **类型安全**：完备的类型注解和配置校验，降低运行时错误
 
+## 📚 相关文档
+
+### NovelForge 功能融合方案
+
+- **[INTEGRATION_SUMMARY.md](./INTEGRATION_SUMMARY.md)** - 融合方案总结和索引
+- **[NOVELFORGE_INTEGRATION_PLAN.md](./NOVELFORGE_INTEGRATION_PLAN.md)** - 核心功能详细设计
+- **[WORKFLOW_INTEGRATION_GUIDE.md](./WORKFLOW_INTEGRATION_GUIDE.md)** - 创作流程融合指南
+- **[NOVELWEAVE_INTEGRATION.md](./NOVELWEAVE_INTEGRATION.md)** - qcbigma 方法论融合方案 ⭐
+
+### 整合工作流和优化
+
+- **[INTEGRATED_WORKFLOW_GUIDE.md](./INTEGRATED_WORKFLOW_GUIDE.md)** - 整合工作流使用指南
+- **[WORKFLOW_OPTIMIZATION_RECOMMENDATIONS.md](./WORKFLOW_OPTIMIZATION_RECOMMENDATIONS.md)** - 创作流程优化建议 ⭐
+- **[MULTI_AGENT_COORDINATION.md](./MULTI_AGENT_COORDINATION.md)** - 多Agent协同机制使用指南 ⭐⭐（支持1-5个API的智能协同）
+
+这些文档详细说明了如何将 NovelForge 的智能创作功能融合到现有系统中，包括：
+- 动态输出模型（Pydantic）
+- 自由上下文注入
+- 知识图谱驱动（Neo4j）
+- 灵感助手和工作台
+- 雪花式创作流程
+- 高度可配置系统
+
 ## 适用场景
 
 - 小说创作和打磨
@@ -225,12 +356,39 @@ class CustomAgent(AnalystAgent):
         pass
 ```
 
+## 工具和脚本
+
+### 配置验证工具
+
+验证配置文件的有效性：
+
+```bash
+python validate_config.py [config.yaml]
+```
+
+### 依赖安装脚本
+
+**Windows:**
+```bash
+install.bat
+# 或
+find_and_install.ps1
+```
+
+**Linux/Mac:**
+```bash
+chmod +x start_api.sh
+./start_api.sh
+```
+
 ## 注意事项
 
 1. **API密钥安全**: 建议使用环境变量存储API密钥，不要提交到版本控制
 2. **Token消耗**: 处理长篇小说会消耗大量Token，注意成本控制
 3. **处理时间**: 根据小说长度和拓扑模式，处理时间从几分钟到数小时不等
 4. **内存占用**: 处理超长文本时注意内存使用
+5. **文件大小限制**: API服务器默认限制上传文件大小为50MB，可通过环境变量 `MAX_FILE_SIZE` 调整
+6. **日志管理**: 日志文件可能会增长，建议定期清理或使用日志轮转工具
 
 ## 许可证
 
@@ -241,6 +399,14 @@ class CustomAgent(AnalystAgent):
 欢迎提交Issue和Pull Request！
 
 ## 更新日志
+
+### v1.1.0 (2025-01-XX)
+- ✨ 新增配置验证工具 (`validate_config.py`)
+- 🔒 改进API服务器安全性（CORS配置、文件大小限制）
+- 🛡️ 增强错误处理和临时文件清理
+- 📝 改进日志配置（支持日志级别、文件大小警告）
+- ✅ 添加配置文件验证逻辑
+- 🧹 改进临时文件管理（使用 `shutil.rmtree` 确保清理）
 
 ### v1.0.0 (2025-11-20)
 - 初始版本发布

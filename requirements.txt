@@ -16,3 +16,18 @@ chromadb>=0.4.0  # 用于Frankentexts向量检索
 # 其他工具
 python-dotenv>=1.0.0  # 环境变量管理
 
+# Web服务器（API部署）
+fastapi>=0.104.0  # FastAPI框架
+uvicorn[standard]>=0.24.0  # ASGI服务器
+python-multipart>=0.0.6  # 文件上传支持
+
+# 配置热重载（可选）
+watchdog>=3.0.0  # 文件系统监控
+
+# 测试框架
+pytest>=7.0.0  # 测试框架
+pytest-cov>=4.0.0  # 测试覆盖率
+
+# 异步HTTP客户端（连接池）
+aiohttp>=3.8.0  # 异步HTTP客户端和连接池
+

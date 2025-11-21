@@ -28,16 +28,58 @@ from core.memory_manager import MemoryManager
 from core.model_interface import ModelFactory
 from core.topology_manager import DynamicTopologyResolver, TopologyManager, TopologyMode
 
-# 配置日志
+# 先设置基本日志（在读取配置之前）
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('novel_extractor.log', encoding='utf-8'),
-        logging.StreamHandler()
-    ]
+    handlers=[logging.StreamHandler()]
 )
 logger = logging.getLogger(__name__)
+
+# 使用统一的日志配置模块
+def setup_logging(config: dict = None):
+    """设置日志配置（使用日志轮转）"""
+    try:
+        from core.logging_config import setup_logging as setup_logging_with_rotation
+        log_config = config.get("logging", {}) if config else {}
+        log_level = log_config.get("level", "INFO")
+        log_file = log_config.get("file", "novel_extractor.log")
+        max_bytes = log_config.get("max_bytes", 10 * 1024 * 1024)  # 10MB
+        backup_count = log_config.get("backup_count", 5)
+        return setup_logging_with_rotation(
+            log_level=log_level,
+            log_file=log_file,
+            max_bytes=max_bytes,
+            backup_count=backup_count,
+            console_output=True
+        )
+    except ImportError:
+        # 如果日志配置模块不可用，使用基本配置
+        log_config = config.get("logging", {}) if config else {}
+        log_level = log_config.get("level", "INFO")
+        log_file = log_config.get("file", "novel_extractor.log")
+        
+        log_path = Path(log_file)
+        if log_path.parent != Path("."):
+            log_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        date_format = '%Y-%m-%d %H:%M:%S'
+        
+        level = getattr(logging, log_level.upper(), logging.INFO)
+        
+        logging.basicConfig(
+            level=level,
+            format=log_format,
+            datefmt=date_format,
+            handlers=[
+                logging.FileHandler(log_file, encoding='utf-8'),
+                logging.StreamHandler()
+            ],
+            force=True
+        )
+        
+        return logging.getLogger(__name__)
 
 
 class NovelCorpusExtractor:
@@ -51,8 +93,19 @@ class NovelCorpusExtractor:
             raise FileNotFoundError(f"配置文件不存在: {config_path}")
         
         # 加载配置
-        with open(config_path, 'r', encoding='utf-8') as f:
-            self.config = yaml.safe_load(f) or {}
+        try:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                self.config = yaml.safe_load(f) or {}
+        except yaml.YAMLError as e:
+            raise ValueError(f"配置文件格式错误: {e}")
+        except Exception as e:
+            raise IOError(f"读取配置文件失败: {e}")
+        
+        # 重新配置日志（使用配置文件中的设置）
+        setup_logging(self.config)
+        
+        # 验证必要的配置项
+        self._validate_config()
         
         # 初始化模型客户端（支持单API或多API池模式）
         api_pool_config = self.config.get("api_pool", {})
@@ -134,8 +187,55 @@ class NovelCorpusExtractor:
         
         logger.info("系统初始化完成")
     
+    def _validate_config(self):
+        """验证配置文件的有效性"""
+        # 检查是否有模型配置或API池配置
+        model_config = self.config.get("model", {})
+        api_pool_config = self.config.get("api_pool", {})
+        
+        if not api_pool_config.get("enabled", False):
+            # 单API模式：检查基本配置
+            if not model_config.get("model"):
+                logger.warning("未指定模型类型，将使用默认配置")
+            if not model_config.get("api_key") and not os.getenv("OPENAI_API_KEY"):
+                provider = model_config.get("model", "openai").upper()
+                env_key = f"{provider}_API_KEY"
+                if not os.getenv(env_key):
+                    logger.warning(f"未找到API密钥（配置文件中或环境变量 {env_key}）")
+        else:
+            # 多API池模式：检查至少有一个启用的API
+            apis = api_pool_config.get("apis", [])
+            enabled_apis = [api for api in apis if api.get("enabled", True)]
+            if not enabled_apis:
+                logger.warning("API池模式已启用，但未找到启用的API配置")
+        
+        # 检查输出目录配置
+        output_dir = self.config.get("output_dir", "output")
+        if not output_dir:
+            raise ValueError("输出目录配置不能为空")
+        
+        # 检查分块配置
+        chunk_size = self.config.get("chunk_size", 1024)
+        if chunk_size <= 0:
+            raise ValueError("chunk_size 必须大于 0")
+        
+        chunk_overlap = self.config.get("chunk_overlap", 100)
+        if chunk_overlap < 0:
+            raise ValueError("chunk_overlap 不能为负数")
+        
+        if chunk_overlap >= chunk_size:
+            logger.warning(f"chunk_overlap ({chunk_overlap}) 大于等于 chunk_size ({chunk_size})，建议调整")
+    
     async def process_novel(self, input_file: str, novel_type: str = "通用"):
         """处理小说文件"""
+        # 验证输入文件
+        input_path = Path(input_file)
+        if not input_path.exists():
+            raise FileNotFoundError(f"输入文件不存在: {input_file}")
+        
+        if not input_path.is_file():
+            raise ValueError(f"输入路径不是文件: {input_file}")
+        
         logger.info(f"开始处理小说: {input_file}")
         
         # 解析类型标签（支持多个类型，用逗号分隔）
@@ -145,8 +245,14 @@ class NovelCorpusExtractor:
         
         # 读取并分块
         logger.info("步骤1: 读取和分块...")
-        chunks = list(self.reader.process(input_file))
-        logger.info(f"共生成 {len(chunks)} 个文本块")
+        try:
+            chunks = list(self.reader.process(str(input_path)))
+            if not chunks:
+                raise ValueError("未能从文件中提取任何文本块，请检查文件格式和内容")
+            logger.info(f"共生成 {len(chunks)} 个文本块")
+        except Exception as e:
+            logger.error(f"读取和分块失败: {e}")
+            raise
         
         # 根据拓扑模式执行
         mode = self.topology_manager.mode

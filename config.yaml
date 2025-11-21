@@ -1,11 +1,13 @@
 # 小说语料提取系统配置文件
+# 注意：本系统仅使用 API 模式，不支持本地模型
 
 # 模型配置（单API模式）
+# 请确保配置了有效的 API 密钥，可通过环境变量或配置文件设置
 model:
   model: "openai"  # openai / gemini / deepseek
   model_name: "gpt-4"  # 具体模型名称
-  api_key: ""  # API密钥，也可通过环境变量设置
-  base_url: ""  # 可选，自定义API地址
+  api_key: ""  # API密钥，也可通过环境变量设置（如 OPENAI_API_KEY）
+  base_url: ""  # 可选，自定义API地址（仅用于兼容 OpenAI API 格式的其他服务）
 
 # 多API池配置（高级模式，启用后将使用多API负载均衡）
 api_pool:

@@ -1,0 +1,13 @@
+# 默认项目模板
+name: "默认项目"
+description: "使用默认配置的项目模板"
+config:
+  novel_type: "通用"
+  chunk_size: 1024
+  chunk_overlap: 100
+  topology_mode: "auto"
+metadata:
+  template_version: "1.0"
+  created_by: "system"
+
+
